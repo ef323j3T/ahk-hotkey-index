@@ -43,6 +43,8 @@ global keyindex_id
 #Include %A_ScriptDir%\lib\classGlobalContainer.ahk
 ;----------------------------------------------------------------------
 
+DefaultEditor :=            ; ////// path need to be set<<<<<
+
 Files_Excluded	:= "iswitchr|HotKey_Help" ;dont search these file for hotkeys // File Names with Out Ext Seperated by | i.e. Files_Excluded 	:= "Test|Debugging" -
 Hot_Excluded := " " ; Excluded keys
 options_filters := ["B"] ; Keys with these options are excluded
@@ -345,7 +347,7 @@ OpenInEditor() {
 		return
 	LV_GetText(HKFP, rowNum, 7)
 	WinHide, ahk_id %keyindex_id%
-	Run, C:\Users\Emily\AppData\Local\atom\atom.exe %HKFP%
+	Run, %DefaultEditor% %HKFP% ;						
 }
 Run_Show_Info() {
 	LV_GetText(C1,A_EventInfo,1)
